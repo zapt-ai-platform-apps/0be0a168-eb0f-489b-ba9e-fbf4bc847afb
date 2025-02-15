@@ -1,15 +1,8 @@
 # Manage Tasks Journey
 
-This guide explains how to manage your tasks effectively in SnapTasks.
+Manage your tasks seamlessly with intuitive swipe gestures:
 
-1. **Viewing Tasks:**  
-   All your added tasks appear in a scrollable list beneath the "Add Task" button.
-
-2. **Marking a Task as Done:**  
-   To mark a task as completed, swipe right on the task item. The task will be updated with a strikethrough style, and a console log will confirm the change.
-
-3. **Deleting a Task:**  
-   To remove a task, swipe left on the task item. The task will be deleted from the list, and this action is logged to the console.
-
-4. **Feedback:**  
-   Strategic logs are printed to the developer console during each action, making it easy to track task operations.
+1. **View Your Task List**: All your tasks are displayed in a clean, scrollable list.
+2. **Mark a Task as Done**: Swipe right on a task item. The task will slide to the right and be marked as done.
+3. **Delete a Task**: Swipe left on a task item. The task will slide to the left and be removed from the list.
+4. **Visual Feedback**: Tasks that are marked as done will show a strikethrough and reduced opacity.

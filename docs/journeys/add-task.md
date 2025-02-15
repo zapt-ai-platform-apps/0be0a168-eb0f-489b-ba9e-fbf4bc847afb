@@ -1,15 +1,8 @@
 # Add Task Journey
 
-This guide explains how to quickly add a new task in SnapTasks.
+Follow these steps to add a new task in SnapTasks:
 
-1. **Launch the App:**  
-   Open SnapTasks on your device. The landing page displays a large neon green "Add Task" button in the center.
-
-2. **Tap "Add Task":**  
-   Tap the "Add Task" button. This action reveals an input field where you can start typing your task immediately. The input field is auto-focused for your convenience.
-
-3. **Enter Task Details:**  
-   Type your task description into the input box. Press the "Enter" key or tap the "Submit" button to add the task.
-
-4. **Confirmation:**  
-   Upon submitting, the task is added to the list below. A console log confirms the addition of the task.
+1. **Initiate Task Entry**: Tap the **Add Task** button located at the center of the screen. This button is prominently displayed in neon green.
+2. **Enter Task Details**: An input field will immediately appear below the button. Type your task description into this field.
+3. **Submit the Task**: Press the Enter key. Your task will be added to the task list below.
+4. **Review Your Task**: The newly added task will appear at the top of the list, ready for management.
