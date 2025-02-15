@@ -1,17 +1,15 @@
 import React from 'react';
 
-const Header = ({ darkMode, toggleDarkMode, title }) => {
+export default function Header({ darkMode, toggleDarkMode, title }) {
   return (
-    <header className="w-full bg-gray-100 dark:bg-gray-700 p-4">
-      <div className="grid grid-cols-3 items-center">
-        <button onClick={toggleDarkMode} className="cursor-pointer text-sm font-medium text-blue-600">
-          {darkMode ? "Light Mode" : "Dark Mode"}
-        </button>
-        <h1 className="text-xl font-bold text-center">{title}</h1>
-        <div></div>
-      </div>
+    <header className="p-4 bg-gray-100 dark:bg-gray-900 flex items-center justify-between">
+      <h1 className="text-2xl font-bold">{title}</h1>
+      <button
+        onClick={toggleDarkMode}
+        className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded"
+      >
+        {darkMode ? 'Light Mode' : 'Dark Mode'}
+      </button>
     </header>
   );
-};
-
-export default Header;
+}
