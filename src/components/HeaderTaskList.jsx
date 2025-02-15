@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = ({ darkMode, toggleDarkMode, title }) => {
+export function Header({ darkMode, toggleDarkMode, title }) {
   return (
-    <header className="p-4 bg-gray-300 dark:bg-gray-900 flex justify-between items-center">
-      <h1 className="text-2xl font-bold">{title}</h1>
+    <header className="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-900">
+      <h1 className="text-xl font-bold">{title}</h1>
       <button
         onClick={toggleDarkMode}
         className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
@@ -12,15 +12,18 @@ const Header = ({ darkMode, toggleDarkMode, title }) => {
       </button>
     </header>
   );
-};
+}
 
-const TaskList = ({ tasks, markTaskDone, deleteTask }) => {
+export function TaskList({ tasks, markTaskDone, deleteTask }) {
   return (
     <div className="space-y-2">
       {tasks.map((task) => (
-        <div key={task.id} className="flex justify-between items-center p-2 border border-gray-300 rounded">
+        <div
+          key={task.id}
+          className="flex items-center justify-between p-2 border border-gray-300 rounded"
+        >
           <span className={task.done ? "line-through" : ""}>{task.text}</span>
-          <div className="space-x-2">
+          <div className="flex space-x-2">
             {!task.done && (
               <button
                 onClick={() => markTaskDone(task.id)}
@@ -40,6 +43,4 @@ const TaskList = ({ tasks, markTaskDone, deleteTask }) => {
       ))}
     </div>
   );
-};
-
-export { Header, TaskList };
+}

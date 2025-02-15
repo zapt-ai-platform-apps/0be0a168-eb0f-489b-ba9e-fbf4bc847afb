@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Header, TaskList } from './components/HeaderTaskList';
-import { Timer, Calendar } from './components/Modes';
+import Timer from './components/Timer';
+import Calendar from './components/Calendar';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -102,7 +103,7 @@ export default function App() {
                 onKeyDown={handleNewTaskKeyDown}
                 autoFocus
                 placeholder="Enter new task..."
-                className="box-border p-2 border border-gray-300 rounded w-64 mb-4"
+                className="box-border p-2 border border-gray-300 rounded w-64 mb-4 dark:text-white"
               />
             )}
             <div className="w-full max-w-md overflow-y-auto h-full">

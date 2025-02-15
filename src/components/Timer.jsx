@@ -42,19 +42,21 @@ const Timer = ({ onBack }) => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <button
-        onClick={onBack}
-        className="self-start mb-4 px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white font-bold rounded cursor-pointer"
-      >
-        Back
-      </button>
-      <h2 className="text-2xl font-bold mb-4">Timer Mode</h2>
+    <div className="flex flex-col items-center p-4">
+      {timerStarted && (
+        <button
+          onClick={onBack}
+          className="self-start mb-4 px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white font-bold rounded cursor-pointer"
+        >
+          Back
+        </button>
+      )}
+      <h2 className="text-2xl font-bold mb-4 dark:text-white">Timer Mode</h2>
       {timerStarted && timeRemaining > 0 ? (
         <div className="text-4xl font-mono mb-4">
           {formatTime(timeRemaining)}
         </div>
-      ) : (
+      ) : !timerStarted ? (
         <div className="flex flex-wrap gap-4 justify-center">
           {presets.map((preset) => (
             <button
@@ -66,8 +68,7 @@ const Timer = ({ onBack }) => {
             </button>
           ))}
         </div>
-      )}
-      {timerStarted && timeRemaining === 0 && (
+      ) : (
         <div className="text-xl font-bold mt-4">Time's up!</div>
       )}
     </div>

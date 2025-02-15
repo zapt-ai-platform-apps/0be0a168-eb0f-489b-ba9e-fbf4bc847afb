@@ -1,22 +1,26 @@
 import React from 'react';
 
 const CalendarNavigation = ({ currentDate, onPrevious, onNext }) => {
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"
+  ];
   return (
-    <div className="mb-4 flex items-center">
+    <div className="flex items-center mb-4">
       <button
         onClick={onPrevious}
-        className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white font-bold rounded cursor-pointer"
+        className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded"
       >
-        ←
+        Previous
       </button>
-      <span className="mx-4 text-xl font-medium dark:text-white">
-        {currentDate.toLocaleString('default', { month: 'long', year: 'numeric' })}
-      </span>
+      <div className="mx-4 font-bold text-lg dark:text-white">
+        {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
+      </div>
       <button
         onClick={onNext}
-        className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white font-bold rounded cursor-pointer"
+        className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded"
       >
-        →
+        Next
       </button>
     </div>
   );
