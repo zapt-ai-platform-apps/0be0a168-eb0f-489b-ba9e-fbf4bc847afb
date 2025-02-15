@@ -1,19 +1,38 @@
 import React, { useState } from 'react';
+import CalendarNavigation from './CalendarNavigation';
+import { formatDate } from '../utils/dateUtils';
 
 const Calendar = ({ onBack }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [currentDate, setCurrentDate] = useState(() => {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), 1);
+  });
+  const selectedDate = formatDate(currentDate);
   const [eventText, setEventText] = useState("");
   const [events, setEvents] = useState([]);
 
   const addEvent = () => {
     if (eventText.trim() !== "") {
-      setEvents([...events, { date: selectedDate, text: eventText.trim() }]);
+      const newEvent = { date: selectedDate, text: eventText.trim() };
+      setEvents([...events, newEvent]);
       console.log("Event added on", selectedDate, ":", eventText);
       setEventText("");
     }
   };
 
   const eventsForSelectedDate = events.filter(event => event.date === selectedDate);
+
+  const goToPreviousMonth = () => {
+    const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
+    setCurrentDate(newDate);
+    console.log("Switched to previous month:", newDate);
+  };
+
+  const goToNextMonth = () => {
+    const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+    setCurrentDate(newDate);
+    console.log("Switched to next month:", newDate);
+  };
 
   return (
     <div className="flex flex-col items-center">
@@ -23,16 +42,12 @@ const Calendar = ({ onBack }) => {
       >
         Back
       </button>
-      <h2 className="text-2xl font-bold mb-4">Calendar Mode</h2>
-      <div className="mb-4">
-        <label className="mr-2 font-medium">Select Date:</label>
-        <input
-          type="date"
-          value={selectedDate}
-          onChange={(e) => setSelectedDate(e.target.value)}
-          className="box-border p-2 border border-gray-300 rounded cursor-pointer"
-        />
-      </div>
+      <h2 className="text-2xl font-bold mb-4 dark:text-white">Calendar Mode</h2>
+      <CalendarNavigation
+        currentDate={currentDate}
+        onPrevious={goToPreviousMonth}
+        onNext={goToNextMonth}
+      />
       <div className="mb-4 flex items-center">
         <input
           type="text"
@@ -49,13 +64,13 @@ const Calendar = ({ onBack }) => {
         </button>
       </div>
       <div className="w-full max-w-md">
-        <h3 className="font-bold mb-2">Events on {selectedDate}:</h3>
+        <h3 className="font-bold mb-2 dark:text-white">Events on {selectedDate}:</h3>
         {eventsForSelectedDate.length === 0 ? (
-          <p className="text-gray-600">No events for this date.</p>
+          <p className="text-gray-600 dark:text-gray-300">No events for this date.</p>
         ) : (
           <ul className="list-disc list-inside">
             {eventsForSelectedDate.map((event, index) => (
-              <li key={index}>{event.text}</li>
+              <li key={index} className="dark:text-white">{event.text}</li>
             ))}
           </ul>
         )}

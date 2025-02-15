@@ -6,7 +6,7 @@ export default function Header({ darkMode, toggleDarkMode, title }) {
       <h1 className="text-2xl font-bold">{title}</h1>
       <button
         onClick={toggleDarkMode}
-        className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded"
+        className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded cursor-pointer"
       >
         {darkMode ? 'Light Mode' : 'Dark Mode'}
       </button>

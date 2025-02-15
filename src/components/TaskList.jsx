@@ -10,14 +10,14 @@ export default function TaskList({ tasks, markTaskDone, deleteTask }) {
             {!task.done && (
               <button
                 onClick={() => markTaskDone(task.id)}
-                className="px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded"
+                className="px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded cursor-pointer"
               >
                 Done
               </button>
             )}
             <button
               onClick={() => deleteTask(task.id)}
-              className="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded"
+              className="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded cursor-pointer"
             >
               Delete
             </button>

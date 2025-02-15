@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
-import TaskList from './components/TaskList';
-import Timer from './components/Timer';
-import Calendar from './components/Calendar';
+import { Header, TaskList } from './components/HeaderTaskList';
+import { Timer, Calendar } from './components/Modes';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -52,9 +50,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-800 text-gray-900 dark:text-black flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-gray-800 text-gray-900 dark:text-white flex flex-col">
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} title="SnapTasks" />
-      <div className="flex flex-col items-center justify-center flex-grow p-4">
+      <div className="flex flex-col items-center justify-center flex-grow p-4 h-full">
         {(!isTimerMode && !isCalendarOpen) && (
           <div className="flex space-x-4 mb-4">
             <button
